@@ -6,6 +6,7 @@
 }
 body{
    background-color: aqua;
+   overflow-x: hidden;
 }
 .content{
    background-color: rgb(149, 216, 210);
