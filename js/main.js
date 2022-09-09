@@ -6,40 +6,65 @@ var elFix = document.querySelector('.fix');
 var elCar = document.querySelector('.car');
 var elPlan = document.querySelector('.plane');
 
-var boy = 3.6;
-var bicle = 20.1;
-var car = 70;
-var airplane = 800;
+var FOOT_SPEED = 3.6;
+var BYC_SPEED = 20.1;
+var CAR_SPEED = 70;
+var PLANE_SPEED = 800;
 
+function checkTime(dis,speed){
+   var hour = Math.floor(dis / speed);
+   var minutes = Math.floor((dis / speed - hour) * 60);
+   var secondas = Math.floor(((dis / speed - hour) * 60 - minutes) * 60);
+
+   return `⌚ ${hour} soat ${minutes} minut ${secondas} secund`;
+}
+
+console.log(checkTime(100,70));
 elForm.addEventListener('submit', function(evt){
    evt.preventDefault();
-   var inpVal = +inp.value
-   function time (inpVal,boy){
-      return +Math.round(inpVal / boy) + ' soat';
-   }
+   var inpVal = +inp.value;
 
-   elText.textContent = time(inpVal,boy);
+   elText.textContent = checkTime(inpVal,FOOT_SPEED);
+   elFix.textContent = checkTime(inpVal,BYC_SPEED);
+   elCar.textContent = checkTime(inpVal,CAR_SPEED);
+   elPlan.textContent = checkTime(inpVal,PLANE_SPEED);
+
+})
+
+// var boy = 3.6;
+// var bicle = 20.1;
+// var car = 70;
+// var airplane = 800;
+
+// elForm.addEventListener('submit', function(evt){
+//    evt.preventDefault();
+//    var inpVal = +inp.value
+//    function time (inpVal,boy){
+//       return +Math.round(inpVal / boy) + ' soat';
+//    }
+
+//    elText.textContent = time(inpVal,boy);
 
 
-   function time (inpVal,bicle){
-      return +Math.round(inpVal / bicle) + ' soat';
-   }
+//    function time (inpVal,bicle){
+//       return +Math.round(inpVal / bicle) + ' soat';
+//    }
 
-   elFix.textContent = time(inpVal,bicle);
+//    elFix.textContent = time(inpVal,bicle);
 
 
-   function time (inpVal,car){
-      return +Math.round(inpVal / car) + ' soat';
-   }
+//    function time (inpVal,car){
+//       return +Math.round(inpVal / car) + ' soat';
+//    }
 
-   elCar.textContent = time(inpVal,car);
+//    elCar.textContent = time(inpVal,car);
 
-   function time (inpVal,airplane){
-      return +Math.round(inpVal / airplane) + ' soat';
-   }
+//    function time (inpVal,airplane){
+//       return +Math.round(inpVal / airplane) + ' soat';
+//    }
 
-   elPlan.textContent = time(inpVal,airplane);
-});
+//    elPlan.textContent = time(inpVal,airplane);
+// });
 
 
 
